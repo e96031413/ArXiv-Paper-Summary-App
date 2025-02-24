@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArXiv Paper Summary Service</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold">ArXiv Summary</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="mb-6">
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <!-- API Key Input -->
+                <div class="bg-white p-6 rounded-lg shadow mb-6">
+                    <div class="mb-4">
+                        <label for="apiKey" class="block text-sm font-medium text-gray-700 mb-2">OpenAI API Key</label>
+                        <div class="flex space-x-2">
+                            <input type="password" id="apiKey" class="flex-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" placeholder="Enter your OpenAI API Key">
+                            <button onclick="saveApiKey()" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Save</button>
+                        </div>
+                        <p id="apiKeyStatus" class="mt-2 text-sm text-gray-500">Please enter your OpenAI API Key to generate summaries</p>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="flex-1 max-w-xs">
+                    <label for="categorySelect" class="block text-sm font-medium text-gray-700 mb-2">Select Category</label>
+                    <select id="categorySelect" class="w-full rounded-md border-gray-300 py-2 px-4 bg-white shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="cs.CV">Computer Vision</option>
+                        <option value="cs.AI">Artificial Intelligence</option>
+                        <option value="cs.LG">Machine Learning</option>
+                        <option value="cs.CL">Computation and Language</option>
+                        <option value="cs.RO">Robotics</option>
+                    </select>
+                </div>
+                <div class="flex-1 max-w-xs">
+                    <label for="resultsCount" class="block text-sm font-medium text-gray-700 mb-2">Number of Papers</label>
+                    <select id="resultsCount" class="w-full rounded-md border-gray-300 py-2 px-4 bg-white shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="10">10 papers</option>
+                        <option value="20">20 papers</option>
+                        <option value="30">30 papers</option>
+                        <option value="40">40 papers</option>
+                        <option value="50">50 papers</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button onclick="fetchPapers()" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Fetch Papers
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden">
+            <div class="flex items-center justify-center min-h-screen">
+                <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
+            </div>
+        </div>
+
+        <div id="papers" class="space-y-6">
+            <!-- Papers will be loaded here -->
+        </div>
+    </main>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
