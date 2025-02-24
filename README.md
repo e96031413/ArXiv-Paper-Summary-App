@@ -1,4 +1,6 @@
 # ArXiv Paper Summary App
+![image](https://github.com/user-attachments/assets/1eba31e5-392f-4ed7-a8eb-77841d7596e4)
+
 
 一個使用 OpenAI GPT-4 為 arXiv 論文生成結構化摘要的網頁應用。
 
@@ -19,7 +21,7 @@
 - 簡潔的用戶界面
 - 按需生成摘要，節省 API 使用量
 
-## 技術棧
+## 技術
 
 - Frontend: 
   - HTML5
@@ -33,9 +35,9 @@
 
 ## 快速開始
 
-1. 克隆倉庫：
+1. clone rep：
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/e96031413/ArXiv-Paper-Summary-App
    cd ArXiv-Paper-Summary-App
    ```
 
